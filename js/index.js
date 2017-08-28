@@ -19,9 +19,12 @@ popUp.addEventListener('click', () => {
 
 /*------------------------Slider--------------------------------------------------------*/
 
+let slides = document.getElementsByClassName('slider-item'),
+    pagginator = document.getElementById('pagginator'),
+    childrens = pagginator.children;
+
 function handleClickNext() {
-    let current, next,
-        slides = document.getElementsByClassName('slider-item');
+    let current, next, id;
     for(let i = 0; i < slides.length; i++){
         if(slides[i].classList.contains('current-slide')){
             current = i;
@@ -29,15 +32,29 @@ function handleClickNext() {
             else next = 0;
         }
     }
+    for(let i = 0; i < childrens.length; i++){
+        if(childrens[i].classList.contains('active-pagginator')){
+            if(i !== childrens.length - 1) {
+                id = i + 1;
+            }
+            else {
+               id = 0;
+            }
+            childrens[i].classList.remove('active-pagginator');
+            break;
+        }
+    }
+    childrens[id].classList.add('active-pagginator');
 
     slides[current].style.animation = 'fade-out .5s ease forwards';
     slides[current].classList.remove('current-slide');
     slides[next].style.animation = 'fade-in .5s ease forwards';
     slides[next].classList.add('current-slide');
 }
+
+
 function handleClickPrev() {
-    let current, prev,
-        slides = document.getElementsByClassName('slider-item');
+    let current, prev, id;
     for(let i = 0; i < slides.length; i++){
         if(slides[i].classList.contains('current-slide')){
             current = i;
@@ -45,6 +62,18 @@ function handleClickPrev() {
             else prev = slides.length - 1;
         }
     }
+    for(let i = 0; i < childrens.length; i++){
+        if(childrens[i].classList.contains('active-pagginator')){
+            if(i !== 0) {
+                id = i - 1;
+            } else {
+                id = childrens.length - 1;
+            }
+            childrens[i].classList.remove('active-pagginator');
+            break;
+        }
+    }
+    childrens[id].classList.add('active-pagginator');
 
     slides[current].style.animation = 'fade-out .5s ease forwards';
     slides[current].classList.remove('current-slide');
@@ -52,5 +81,40 @@ function handleClickPrev() {
     slides[prev].classList.add('current-slide');
 }
 
+/*Add navigation buttons*/
+for(let i = 0; i < slides.length; i++){
+    let li = document.createElement('li');
+    if(i === 0) li.classList.add('active-pagginator');
+    li.dataset.id = i;
+    pagginator.appendChild(li);
+}
+
+
+function handlePagginator(e) {
+    let target = e.target;
+
+    if(target.tagName !== 'LI') return;
+
+    let current, id = target.dataset.id;
+    for(let i = 0; i < slides.length; i++) {
+        if (slides[i].classList.contains('current-slide')) {
+            current = i;
+        }
+    }
+    for(let i = 0; i < childrens.length; i++){
+        if(childrens[i].classList.contains('active-pagginator')){
+            childrens[i].classList.remove('active-pagginator');
+            break;
+        }
+    }
+    childrens[id].classList.add('active-pagginator');
+
+    slides[current].style.animation = 'fade-out .5s ease forwards';
+    slides[current].classList.remove('current-slide');
+    slides[id].style.animation = 'fade-in .5s ease forwards';
+    slides[id].classList.add('current-slide');
+}
+
+pagginator.addEventListener('click', handlePagginator);
 prevButton.addEventListener('click', handleClickPrev);
 nextButton.addEventListener('click', handleClickNext);

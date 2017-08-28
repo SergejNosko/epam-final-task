@@ -183,6 +183,29 @@ a{
     padding: 20px 0;
     width: 100%;
 }
+.pagginator{
+    display: flex;
+    justify-content: center;
+}
+.pagginator ul{
+    width: 100px;
+    margin: 0;
+    padding-left: 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+}
+.pagginator li{
+    width: 7px;
+    height: 7px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background-color: #d2d2d2;
+}
+.pagginator .active-pagginator{
+    background-color: #ff004a;
+}
 
 /*Popular section*/
 .popular{
