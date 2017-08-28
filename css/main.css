@@ -202,6 +202,7 @@ a{
     -moz-border-radius: 50%;
     border-radius: 50%;
     background-color: #d2d2d2;
+    cursor: pointer;
 }
 .pagginator .active-pagginator{
     background-color: #ff004a;

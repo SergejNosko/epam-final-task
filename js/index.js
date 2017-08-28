@@ -21,7 +21,8 @@ popUp.addEventListener('click', () => {
 
 let slides = document.getElementsByClassName('slider-item'),
     pagginator = document.getElementById('pagginator'),
-    childrens = pagginator.children;
+    childrens = pagginator.children,
+    interval = setInterval(handleClickNext, 10000);
 
 function handleClickNext() {
     let current, next, id;
@@ -50,6 +51,8 @@ function handleClickNext() {
     slides[current].classList.remove('current-slide');
     slides[next].style.animation = 'fade-in .5s ease forwards';
     slides[next].classList.add('current-slide');
+    clearInterval(interval);
+    interval = setInterval(handleClickNext, 10000);
 }
 
 
@@ -79,6 +82,8 @@ function handleClickPrev() {
     slides[current].classList.remove('current-slide');
     slides[prev].style.animation = 'fade-in .5s ease forwards';
     slides[prev].classList.add('current-slide');
+    clearInterval(interval);
+    interval = setInterval(handleClickNext, 10000);
 }
 
 /*Add navigation buttons*/
@@ -113,6 +118,8 @@ function handlePagginator(e) {
     slides[current].classList.remove('current-slide');
     slides[id].style.animation = 'fade-in .5s ease forwards';
     slides[id].classList.add('current-slide');
+    clearInterval(interval);
+    interval = setInterval(handleClickNext, 10000);
 }
 
 pagginator.addEventListener('click', handlePagginator);
