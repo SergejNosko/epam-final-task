@@ -47,10 +47,16 @@
     <main>
         <!--Slider-->
         <section class="slider">
-            <button class="slider-button arrow-left"><img src="images/arrow-left.png" alt="Arrow left" title="Prev slide"></button>
-            <button class="slider-button arrow-right"><img src="images/arrow-right.png" alt="Arrow right" title="Next slide"></button>
+            <button class="slider-button arrow-left" id="prev-button"><img src="images/arrow-left.png" alt="Arrow left" title="Prev slide"></button>
+            <button class="slider-button arrow-right" id="next-button"><img src="images/arrow-right.png" alt="Arrow right" title="Next slide"></button>
+            <div class="slider-item current-slide">
+                <a href="#"><div class="image image-1"></div></a>
+            </div>
             <div class="slider-item">
-                <a href="#"><div class="image"></div></a>
+                <a href="#"><div class="image image-2"></div></a>
+            </div>
+            <div class="slider-item">
+                <a href="#"><div class="image image-3"></div></a>
             </div>
             <div class="pagginator">
 
@@ -187,6 +193,6 @@
         </article>
     </footer>
 
-    <script src="js/bundle.js"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>
