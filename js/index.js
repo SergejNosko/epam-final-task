@@ -26,20 +26,20 @@ let slides = document.getElementsByClassName('slider-item'),
 
 function handleClickNext() {
     let current, next, id;
-    for(let i = 0; i < slides.length; i++){
-        if(slides[i].classList.contains('current-slide')){
+    for (let i = 0; i < slides.length; i++) {
+        if (slides[i].classList.contains('current-slide')) {
             current = i;
-            if(i !== slides.length - 1) next = i + 1;
+            if (i !== slides.length - 1) next = i + 1;
             else next = 0;
         }
     }
-    for(let i = 0; i < childrens.length; i++){
-        if(childrens[i].classList.contains('active-pagginator')){
-            if(i !== childrens.length - 1) {
+    for (let i = 0; i < childrens.length; i++) {
+        if (childrens[i].classList.contains('active-pagginator')) {
+            if (i !== childrens.length - 1) {
                 id = i + 1;
             }
             else {
-               id = 0;
+                id = 0;
             }
             childrens[i].classList.remove('active-pagginator');
             break;
@@ -58,16 +58,16 @@ function handleClickNext() {
 
 function handleClickPrev() {
     let current, prev, id;
-    for(let i = 0; i < slides.length; i++){
-        if(slides[i].classList.contains('current-slide')){
+    for (let i = 0; i < slides.length; i++) {
+        if (slides[i].classList.contains('current-slide')) {
             current = i;
-            if(i !== 0) prev = i - 1;
+            if (i !== 0) prev = i - 1;
             else prev = slides.length - 1;
         }
     }
-    for(let i = 0; i < childrens.length; i++){
-        if(childrens[i].classList.contains('active-pagginator')){
-            if(i !== 0) {
+    for (let i = 0; i < childrens.length; i++) {
+        if (childrens[i].classList.contains('active-pagginator')) {
+            if (i !== 0) {
                 id = i - 1;
             } else {
                 id = childrens.length - 1;
@@ -87,9 +87,9 @@ function handleClickPrev() {
 }
 
 /*Add navigation buttons*/
-for(let i = 0; i < slides.length; i++){
+for (let i = 0; i < slides.length; i++) {
     let li = document.createElement('li');
-    if(i === 0) li.classList.add('active-pagginator');
+    if (i === 0) li.classList.add('active-pagginator');
     li.dataset.id = i;
     pagginator.appendChild(li);
 }
@@ -98,16 +98,16 @@ for(let i = 0; i < slides.length; i++){
 function handlePagginator(e) {
     let target = e.target;
 
-    if(target.tagName !== 'LI') return;
+    if (target.tagName !== 'LI') return;
 
     let current, id = target.dataset.id;
-    for(let i = 0; i < slides.length; i++) {
+    for (let i = 0; i < slides.length; i++) {
         if (slides[i].classList.contains('current-slide')) {
             current = i;
         }
     }
-    for(let i = 0; i < childrens.length; i++){
-        if(childrens[i].classList.contains('active-pagginator')){
+    for (let i = 0; i < childrens.length; i++) {
+        if (childrens[i].classList.contains('active-pagginator')) {
             childrens[i].classList.remove('active-pagginator');
             break;
         }

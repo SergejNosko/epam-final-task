@@ -128,19 +128,22 @@ a{
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    height: 850px;
     border: 1px solid #e5e5e5;
+    background-size: cover;
+    height: 850px;
     z-index: 10;
 }
 .slider .slider-item .image-1{
     background: url("../images/slider-1.jpg") no-repeat 50% 50%;
-    /*animation: fade-in .5s ease forwards;*/
+    background-size: cover;
 }
 .slider .slider-item .image-2{
     background: url("../images/slider-2.jpg") no-repeat 50% 50%;
+    background-size: cover;
 }
 .slider .slider-item .image-3{
     background: url("../images/slider-3.png") no-repeat 50% 50%;
+    background-size: cover;
 }
 @keyframes fade-in {
     0%{
@@ -483,6 +486,19 @@ footer article:nth-of-type(2){
     .slider .slider-item .image{
         height: 820px;
     }
+    .slider .slider-item .image-1{
+        background: url("../images/slider768-1.png") no-repeat 50% 50%;
+        background-size: cover;
+        /*animation: fade-in .5s ease forwards;*/
+    }
+    .slider .slider-item .image-2{
+        background: url("../images/slider768-2.png") no-repeat 50% 50%;
+        background-size: cover;
+    }
+    .slider .slider-item .image-3{
+        background: url("../images/slider768-3.png") no-repeat 50% 50%;
+        background-size: cover;
+    }
 
     /*Popular*/
     .popular-item{
@@ -617,8 +633,7 @@ footer article:nth-of-type(2){
 
     /*Slider*/
     .slider .slider-item .image{
-        background: url("../images/slider768-1.png") no-repeat 50% 40%;
-        height: 530px;
+        height: 650px;
     }
 
     /*Popular*/
@@ -698,4 +713,23 @@ footer article:nth-of-type(2){
         left: 20px;
     }
 
+}
+
+@media only screen and (max-width: 525px){
+    .slider .slider-item .image{
+        height: 530px;
+    }
+    .slider .slider-item .image-1{
+        background: url("../images/slider375-1.png") no-repeat 50% 40%;
+        background-size: cover;
+        /*animation: fade-in .5s ease forwards;*/
+    }
+    .slider .slider-item .image-2{
+        background: url("../images/slider375-2.jpg") no-repeat 50% 40%;
+        background-size: cover;
+    }
+    .slider .slider-item .image-3{
+        background: url("../images/slider375-3.png") no-repeat 50% 40%;
+        background-size: cover;
+    }
 }
