@@ -256,7 +256,10 @@ footer{
     flex-wrap: wrap;
 }
 footer article{
-    flex: 1 0 50%;
+    /*flex: 1 0 40%;*/
+    flex-basis: 40%;
+    flex-shrink: 0;
+    flex-grow: 1;
     display: flex;
     border: 1px solid #e5e5e5;
     padding: 60px 55px 100px;
