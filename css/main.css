@@ -457,6 +457,83 @@ footer article:nth-of-type(2){
 
 
 /*--------------------------------------Catalog Page----------------------------------------------*/
+.filter{
+    max-width: 1180px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.filter-item{
+    flex-grow: 1;
+    flex-basis: auto;
+    background: #f7f7f7 url("../images/drop-down-ico.png") no-repeat 90% 50%;
+    padding: 0 20px;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    /*display: flex;
+    flex-direction: column;*/
+}
+.filter-name{
+    font-family: Open-Sans, sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+}
+.filter-value{
+    display: none;
+    font-family: Open-Sans, sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #f14a58;
+}
+.filter-props{
+    display: none;
+    width: 100%;
+    list-style-type: none;
+    font-family: Open-Sans, sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    border: 1px solid #e5e5e5;
+    background: #fff;
+    padding: 0;
+    margin: 0;
+}
+.filter-props li{
+    font-family: Open Sans, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 20px;
+    cursor: pointer;
+}
+.filter-item:hover{
+    background-color: #fff;
+}
+.filter-item:hover .filter-props{
+    display: block;
+    position: absolute;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    left: 0;
+    z-index: 10;
+}
+.filter-props:hover{
+    display: block;
+    position: absolute;
+    z-index: 10;
+}
+.filter-props li:hover{
+    background-color: #f7f7f7;
+    color: #ff004a;
+}
+
 .catalog-popular{
     max-width: 1180px;
     -webkit-box-sizing: border-box;
@@ -499,6 +576,9 @@ footer article:nth-of-type(2){
 .sales-item{
     margin-bottom: 100px;
     position: relative;
+}
+.sales-section .sales-item:first-of-type{
+    display: none;
 }
 .sales-item-hover{
     position: absolute;
@@ -687,6 +767,34 @@ footer article:nth-of-type(2){
     }
     .footer-bottom{
         padding: 35px 40px;
+    }
+
+    /*---------------------------Catalog page----------------------------------------------*/
+    .sales-item{
+        margin: 40px 0 0 0;
+    }
+    .sales-section .sales-header{
+        padding: 0 100px;
+    }
+    .sales-section .sales-header h2{
+        font-size: 20px;
+    }
+    .sales-item img{
+        width: 200px;
+    }
+    .catalog-popular .sales-item:last-of-type{
+        display: none;
+    }
+    .sales-section .sales-item:first-of-type{
+        display: block;
+    }
+    .sales-section .sales-item:last-of-type{
+        display: block;
+    }
+    .sales-section .sales-button{
+        margin-bottom: 0;
+        margin-top: 90px;
+        font-size: 20px;
     }
 }
 
