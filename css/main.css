@@ -457,6 +457,9 @@ footer article:nth-of-type(2){
 
 
 /*--------------------------------------Catalog Page----------------------------------------------*/
+.filter-768{
+    display: none;
+}
 .filter{
     max-width: 1180px;
     -webkit-box-sizing: border-box;
@@ -770,6 +773,95 @@ footer article:nth-of-type(2){
     }
 
     /*---------------------------Catalog page----------------------------------------------*/
+    /*.filter{
+        border-top: 1px solid #e5e5e5;
+        border-bottom: 1px solid #e5e5e5;
+        justify-content: flex-start;
+    }
+    .filter:hover .filter-props{
+        display: block;
+        position: absolute;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        left: 0;
+        z-index: 10;
+    }
+    .filter-item{
+        flex-grow: 0;
+        background: none;
+        padding: 0;
+        border: none;
+        margin-right: 15px;
+    }
+    .filter-props{
+        width: 200px;
+    }*/
+    .filter{
+        display: none;
+    }
+    .filter-768{
+        max-width: 1180px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        margin: 0 auto;
+        display: block;
+    }
+    .filter-768 .filter-768-headers{
+        padding: 25px 0;
+        border-top: 1px solid #e5e5e5;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .filter-768 .filter-768-headers ul{
+        list-style-type: none;
+        display: flex;
+        font-family: Open Sans, sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        margin: 0;
+        padding: 0;
+    }
+    .filter-768 .filter-768-headers li{
+        margin-right: 10px;
+    }
+    .filter-768 .filter-768-headers li:last-of-type{
+        background: url("../images/drop-down-ico.png") no-repeat 100% 50%;
+        width: 100px;
+    }
+    .filter-768 .filter-items-container{
+        display: none;
+        position: absolute;
+        z-index: 10;
+        background: #fff;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .filter-768-item{
+        flex-grow: 1;
+        flex-basis: 100px;
+    }
+    .filter-768-item .filter-name{
+        display: block;
+        color: #f14a58;
+        text-align: center;
+    }
+    .filter-768-item .filter-props{
+        display: block;
+        border: none;
+    }
+    .filter-768-item .filter-props li{
+        padding: 15px 20px;
+        text-align: center;
+    }
+    .filter-768:hover .filter-items-container{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+
+
+
     .sales-item{
         margin: 40px 0 0 0;
     }
@@ -795,6 +887,16 @@ footer article:nth-of-type(2){
         margin-bottom: 0;
         margin-top: 90px;
         font-size: 20px;
+    }
+
+    .interest-item:first-of-type{
+        flex-grow: 2;
+    }
+    .interest-item:last-of-type{
+        flex-grow: 1;
+    }
+    .little-item:last-of-type{
+        display: none;
     }
 }
 
@@ -933,6 +1035,39 @@ footer article:nth-of-type(2){
         position: absolute;
         top: -45px;
         left: 20px;
+    }
+
+    /*------------------------------Catalog Page----------------------------------------*/
+    .filter-768 .filter-768-headers{
+        background: url("../images/drop-down-ico.png") no-repeat 100% 50%;
+    }
+    .filter-768 .filter-768-headers ul{
+        flex-wrap: wrap;
+    }
+    .filter-768 .filter-768-headers li{
+        margin-bottom: 10px;
+    }
+    .filter-768 .filter-768-headers li:last-of-type{
+        background: none;
+    }
+    .catalog-popular .sales-item:nth-of-type(n + 3){
+        display: none;
+    }
+    .sales-section .sales-header{
+        padding: 0 60px;
+        margin-bottom: 60px;
+    }
+    .sales-section .items-container .sales-item:nth-of-type(n + 8){
+        display: none;
+    }
+    .items-container .sales-item img{
+        width: 150px;
+    }
+    .sales-section .items-container .sales-item dt, .sales-section .items-container .sales-item dd{
+        font-size: 12px;
+    }
+    .interest-item:last-of-type{
+        display: none;
     }
 
 }
