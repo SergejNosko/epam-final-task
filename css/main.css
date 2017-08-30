@@ -808,7 +808,8 @@ footer article:nth-of-type(2){
         -moz-box-sizing: border-box;
         box-sizing: border-box;
         margin: 0 auto;
-        display: block;
+        display: flex;
+        flex-direction: column;
     }
     .filter-768 .filter-768-headers{
         padding: 25px 0;
@@ -833,16 +834,22 @@ footer article:nth-of-type(2){
     }
     .filter-768 .filter-items-container{
         display: none;
-        position: absolute;
+        flex-wrap: wrap;
+        /*position: absolute;*/
         z-index: 10;
         background: #fff;
         padding-bottom: 20px;
         border-bottom: 1px solid #e5e5e5;
         margin-top: 10px;
     }
+    .filter-768:hover .filter-items-container{
+        /*display: flex;*/
+    }
     .filter-768-item{
         flex-grow: 1;
-        flex-basis: 100px;
+        flex-basis: auto;
+        display: flex;
+        flex-direction: column;
     }
     .filter-768-item .filter-name{
         display: block;
@@ -850,6 +857,9 @@ footer article:nth-of-type(2){
         text-align: center;
     }
     .filter-768-item .filter-props{
+        flex-grow: 1;
+        flex-basis: auto;
+        position: static;
         display: flex;
         flex-direction: column;
         border: none;
@@ -858,10 +868,6 @@ footer article:nth-of-type(2){
         flex-basis: auto;
         padding: 15px 20px;
         text-align: center;
-    }
-    .filter-768:hover .filter-items-container{
-        display: flex;
-        flex-wrap: wrap;
     }
 
 
@@ -1048,7 +1054,7 @@ footer article:nth-of-type(2){
     }
     .filter-768 .filter-768-headers ul{
         flex-wrap: wrap;
-        flex-direction: column;
+        /*flex-direction: column;*/
     }
     .filter-768 .filter-768-headers li{
         margin-bottom: 10px;
