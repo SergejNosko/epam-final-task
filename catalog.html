@@ -45,9 +45,9 @@
 </header>
 
 <main>
-    <section class="filter-768 container">
+    <section class="filter-768 container" id="filterTablet">
         <div class="filter-768-headers">
-            <ul>
+            <ul id="filter-headers">
                 <li>Fashion , </li>
                 <li>Product type , </li>
                 <li>Color , </li>
@@ -59,7 +59,7 @@
         <div class="filter-items-container">
             <div class="filter-768-item">
                 <h3 class="filter-name">Fashion</h3>
-                <ul class="filter-props">
+                <ul class="filter-props" data-id="0">
                     <li>Not selected</li>
                     <li>Casual style</li>
                     <li>Classic style</li>
@@ -69,7 +69,7 @@
             </div>
             <div class="filter-768-item">
                 <h3 class="filter-name">Product type</h3>
-                <ul class="filter-props">
+                <ul class="filter-props" data-id="1">
                     <li>Not selected</li>
                     <li>T-shirt</li>
                     <li>Jeans</li>
@@ -80,8 +80,7 @@
             </div>
             <div class="filter-768-item">
                 <h3 class="filter-name">Color</h3>
-                <p class="filter-value"></p>
-                <ul class="filter-props">
+                <ul class="filter-props" data-id="2">
                     <li>Not selected</li>
                     <li>Red</li>
                     <li>White</li>
@@ -93,7 +92,7 @@
             </div>
             <div class="filter-768-item">
                 <h3 class="filter-name">Brand</h3>
-                <ul class="filter-props">
+                <ul class="filter-props" data-id="3">
                     <li>Not selected</li>
                     <li>Nike</li>
                     <li>Adidas</li>
@@ -104,7 +103,7 @@
             </div>
             <div class="filter-768-item">
                 <h3 class="filter-name">Size</h3>
-                <ul class="filter-props">
+                <ul class="filter-props" data-id="4">
                     <li>Not selected</li>
                     <li>UK 18</li>
                     <li>UK 19</li>
@@ -115,7 +114,7 @@
             </div>
             <div class="filter-768-item">
                 <h3 class="filter-name">Price range</h3>
-                <ul class="filter-props">
+                <ul class="filter-props" data-id="5">
                     <li>Not selected</li>
                     <li>£10-£20</li>
                     <li>£20-£30</li>
@@ -125,7 +124,7 @@
             </div>
         </div>
     </section>
-    <section class="filter container">
+    <section class="filter container" id="filter">
         <div class="filter-item">
             <h3 class="filter-name">Fashion</h3>
             <p class="filter-value"></p>
@@ -400,7 +399,7 @@
     </article>
 </footer>
 
-<script src="js/index.js"></script>
+<script src="js/filters.js"></script>
 
 </body>
 </html>

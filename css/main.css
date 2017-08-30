@@ -474,7 +474,7 @@ footer article:nth-of-type(2){
     flex-grow: 1;
     flex-basis: auto;
     background: #f7f7f7 url("../images/drop-down-ico.png") no-repeat 90% 50%;
-    padding: 0 20px;
+    padding: 25px 20px;
     border-top: 1px solid #e5e5e5;
     border-bottom: 1px solid #e5e5e5;
     position: relative;
@@ -488,6 +488,7 @@ footer article:nth-of-type(2){
     font-family: Open-Sans, sans-serif;
     font-weight: 700;
     font-size: 16px;
+    margin: 0;
 }
 .filter-value{
     display: none;
@@ -495,6 +496,7 @@ footer article:nth-of-type(2){
     font-weight: 700;
     font-size: 16px;
     color: #f14a58;
+    margin: 0;
 }
 .filter-props{
     display: none;
@@ -506,7 +508,7 @@ footer article:nth-of-type(2){
     border: 1px solid #e5e5e5;
     background: #fff;
     padding: 0;
-    margin: 0;
+    margin: 25px 0 0 0;
 }
 .filter-props li{
     font-family: Open Sans, sans-serif;
@@ -836,6 +838,7 @@ footer article:nth-of-type(2){
         background: #fff;
         padding-bottom: 20px;
         border-bottom: 1px solid #e5e5e5;
+        margin-top: 10px;
     }
     .filter-768-item{
         flex-grow: 1;
@@ -847,10 +850,12 @@ footer article:nth-of-type(2){
         text-align: center;
     }
     .filter-768-item .filter-props{
-        display: block;
+        display: flex;
+        flex-direction: column;
         border: none;
     }
     .filter-768-item .filter-props li{
+        flex-basis: auto;
         padding: 15px 20px;
         text-align: center;
     }
@@ -1043,6 +1048,7 @@ footer article:nth-of-type(2){
     }
     .filter-768 .filter-768-headers ul{
         flex-wrap: wrap;
+        flex-direction: column;
     }
     .filter-768 .filter-768-headers li{
         margin-bottom: 10px;
