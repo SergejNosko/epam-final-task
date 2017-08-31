@@ -825,6 +825,7 @@ footer article:nth-of-type(2){
         padding: 25px 0;
         border-top: 1px solid #e5e5e5;
         border-bottom: 1px solid #e5e5e5;
+        background: url("../images/drop-down-ico.png") no-repeat 100% 50%
     }
     .filter-768 .filter-768-headers ul{
         list-style-type: none;
@@ -840,7 +841,6 @@ footer article:nth-of-type(2){
         margin-right: 10px;
     }
     .filter-768 .filter-768-headers li:last-of-type{
-        background: url("../images/drop-down-ico.png") no-repeat 100% 50%;
         width: 100px;
     }
     .filter-768 .filter-items-container{

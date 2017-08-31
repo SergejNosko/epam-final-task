@@ -37,13 +37,10 @@
         if(getComputedStyle(itemsContainer).display === 'none'){
             itemsContainer.style.display = 'flex';
             header.style.background = 'url("images/close.png") no-repeat 95% 50%';
-            console.log(header.children[0].children[header.children[0].children.length - 1]);
-            lastHeaderLi.style.background = "none";
         }
         else{
             itemsContainer.style.display = 'none';
-            header.style.background = "none";
-            lastHeaderLi.style.background = "url(\"images/drop-down-ico.png\") no-repeat 100% 50%";
+            header.style.background = "url(\"images/drop-down-ico.png\") no-repeat 95% 50%";
         }
 
         if(target.tagName !== "LI") return;
