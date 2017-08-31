@@ -1,28 +1,11 @@
-let search = document.getElementById('search'),
-    popUp = document.getElementById('pop-up'),
-    prevButton = document.getElementById('prev-button'),
-    nextButton = document.getElementById('next-button');
-
-search.addEventListener('click', (e) => {
-    e.preventDefault();
-
-    let searchField = document.getElementById('search-field');
-    if(getComputedStyle(searchField).display == 'none') searchField.style.display = 'block';
-    else searchField.style.display = 'none';
-});
-
-popUp.addEventListener('click', () => {
-   let headerBottom = document.getElementById('header-bottom');
-   if(getComputedStyle(headerBottom).display == 'none') headerBottom.style.display = 'flex';
-   else headerBottom.style.display = 'none';
-});
-
 /*------------------------Slider--------------------------------------------------------*/
 
 let slides = document.getElementsByClassName('slider-item'),
     pagginator = document.getElementById('pagginator'),
     childrens = pagginator.children,
-    interval = setInterval(handleClickNext, 10000);
+    interval = setInterval(handleClickNext, 10000),
+    prevButton = document.getElementById('prev-button'),
+    nextButton = document.getElementById('next-button');
 
 function handleClickNext() {
     let current, next, id;
