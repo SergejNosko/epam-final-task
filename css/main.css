@@ -1314,12 +1314,20 @@ footer article:nth-of-type(2){
 
 
     /*-----------------------------------Item page--------------------------------------*/
+    .back{
+        padding-bottom: 20px;
+        padding-top: 20px;
+    }
     .item-detail .photo-switcher{
         flex-direction: column;
     }
     .item-detail .photo-switcher>img{
         flex-grow: 1;
         flex-basis: auto;
+        height: 220px;
+    }
+    .item-detail .item-info h3{
+        line-height: 2;
     }
     .photo-switcher .thumbnail{
         flex-direction: row;
@@ -1328,6 +1336,13 @@ footer article:nth-of-type(2){
     .photo-switcher .thumbnail .thumbnail-image{
         height: 75px;
         width: 110px;
+    }
+    .item-detail .item-info .feature{
+        align-self: flex-start;
+    }
+    .item-info button{
+        font-size: 18px;
+        padding: 25px 60px;
     }
 }
 
