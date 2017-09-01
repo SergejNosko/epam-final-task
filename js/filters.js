@@ -1,7 +1,12 @@
 ;(function () {
     let filter = document.getElementById('filter'),
         filterTablet = document.getElementById('filterTablet'),
-        filterHeaders = document.getElementById('filter-headers').children;
+        filterHeaders = document.getElementById('filter-headers').children,
+        bagCount = document.getElementById('bag-count'),
+        itemNumber = document.getElementById('item-number');
+
+    bagCount.textContent = localStorage.bagTotal || '';
+    itemNumber.textContent = localStorage.items ? JSON.parse(localStorage.items).length : 0;
 
     function handleFilter(e) {
         let target = e.target;

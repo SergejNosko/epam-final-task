@@ -7,7 +7,10 @@ var slides = document.getElementsByClassName('slider-item'),
     childrens = pagginator.children,
     interval = setInterval(handleClickNext, 10000),
     prevButton = document.getElementById('prev-button'),
-    nextButton = document.getElementById('next-button');
+    nextButton = document.getElementById('next-button'),
+    bagCount = document.getElementById('bag-count');
+
+bagCount.textContent = localStorage.bagCount || 0;
 
 function handleClickNext() {
     var current = void 0,

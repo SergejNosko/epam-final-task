@@ -5,7 +5,12 @@ let slides = document.getElementsByClassName('slider-item'),
     childrens = pagginator.children,
     interval = setInterval(handleClickNext, 10000),
     prevButton = document.getElementById('prev-button'),
-    nextButton = document.getElementById('next-button');
+    nextButton = document.getElementById('next-button'),
+    bagCount = document.getElementById('bag-count'),
+    itemNumber = document.getElementById('item-number');
+
+bagCount.textContent = localStorage.bagTotal || '';
+itemNumber.textContent = localStorage.items ? JSON.parse(localStorage.items).length : 0;
 
 function handleClickNext() {
     let current, next, id;

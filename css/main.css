@@ -723,6 +723,10 @@ footer article:nth-of-type(2){
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 .item-detail .item-info h2{
     font-family: Roboto, sans-serif;
@@ -736,6 +740,7 @@ footer article:nth-of-type(2){
     font-weight: 400;
     font-style: italic;
     margin: 0;
+    width: 100%;
 }
 .item-detail .item-info .price{
     font-family: Roboto;
@@ -779,6 +784,13 @@ footer article:nth-of-type(2){
 }
 
 /*---------------------------------------Bag page--------------------------------------------*/
+#is-empty{
+    display: none;
+    text-align: center;
+    font-size: 40px;
+    margin: 30px auto 50px auto;
+}
+
 .bag-head{
     max-width: 1180px;
     -webkit-box-sizing: border-box;
@@ -816,6 +828,27 @@ footer article:nth-of-type(2){
     flex-grow: 1;
     display: flex;
     margin-bottom: 90px;
+    position: relative;
+}
+.bag-item-hover{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 240px;
+    height: 340px;
+    background: rgba(124, 124, 124, .5);
+    color: #f14a58;
+    font-family: Open Sans, sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+
+}
+.bag-item:hover .bag-item-hover{
+    display: flex;
 }
 .bag-item-description{
     padding: 15px 25px;
@@ -878,6 +911,11 @@ footer article:nth-of-type(2){
     border: 1px solid #e5e5e5;
     background: none;
     cursor:  pointer;
+    transition: all ease .5s;
+}
+.bag-content .control button:last-of-type:hover{
+    border: 1px solid #f14a58;
+    color: #f14a58;
 }
 .bag-content .control dt{
     font-size: 12px;
@@ -1239,6 +1277,13 @@ footer article:nth-of-type(2){
     }
     .bag-content .control dd{
         font-size: 16px;
+    }
+    .bag-item-hover{
+        color: rgba(0, 0, 0, 0);
+        background: none;
+    }
+    .bag-item:hover .bag-item-hover{
+        display: flex;
     }
 
 

@@ -17,7 +17,7 @@
         <h1 class="logo-375">TL</h1>
         <div class="profile-basket">
             <a href="#" title="Email">E-mail sign up</a>
-            <div class="bag"><img src="images/ico-bag.png" alt="bag">Bag (0)</div>
+            <a href="bag.html" class="bag"><img src="images/ico-bag.png" alt="bag" >Bag <span id="bag-count"></span>(<span id="item-number"></span>)</a>
             <button id="pop-up" class="menu-pop-up">
                 <img class="pop-up" src="images/pop-up.png" alt="Menu pop-up">
                 <img class="close" src="images/close.png" alt="Close menu">
@@ -50,9 +50,12 @@
 <main>
     <h2 class="bag-head container">Shopping bag</h2>
     <section class="bag-content container">
-        <article class="bag-items-container">
+        <h3 id="is-empty">Your shopping bag is empty. Use Catalog to add new items</h3>
+        <article class="bag-items-container"  id="bag-container">
             <div class="bag-item">
+                <a href="item.html" class="bag-item-hover"><p>View item</p></a>
                 <img src="images/girl-2.png" alt="">
+
                 <div class="bag-item-description">
                     <h3>Only Skinny Jeans</h3>
                     <p class="price">£390.25</p>
@@ -65,7 +68,9 @@
                 </div>
             </div>
             <div class="bag-item">
-                <img src="images/girl-2.png" alt="">
+                <a href="item.html" class="bag-item-hover"><p>View item</p></a>
+                <img src="images/girl-3.png" alt="">
+
                 <div class="bag-item-description">
                     <h3>Only Skinny Jeans</h3>
                     <p class="price">£390.25</p>
@@ -82,8 +87,8 @@
             <p>You've qualified for Free UK Next Day Delivery on your order. Don't forget to enter the code <span>nexday</span> at checkout</p>
         </div>
         <article class="control">
-            <button>Empty bag</button>
-            <button>Buy now</button>
+            <button id="clear">Empty bag</button>
+            <button id="buy">Buy now</button>
             <dl>
                 <dt>Total cost</dt>
                 <dd>£1 640.50</dd>
@@ -160,6 +165,7 @@
 </footer>
 
 <script src="js/bundle-menu.js"></script>
+<script src="js/bag.js"></script>
 
 </body>
 </html>
