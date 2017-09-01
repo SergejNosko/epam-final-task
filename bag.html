@@ -51,8 +51,8 @@
     <h2 class="bag-head container">Shopping bag</h2>
     <section class="bag-content container">
         <h3 id="is-empty">Your shopping bag is empty. Use Catalog to add new items</h3>
-        <article class="bag-items-container"  id="bag-container">
-            <div class="bag-item">
+        <article class="bag-items-container" id="bag-container">
+            <!--<div class="bag-item">
                 <a href="item.html" class="bag-item-hover"><p>View item</p></a>
                 <img src="images/girl-2.png" alt="">
 
@@ -81,7 +81,7 @@
                     </ul>
                     <button>Remove item</button>
                 </div>
-            </div>
+            </div>-->
         </article>
         <div class="delivery">
             <p>You've qualified for Free UK Next Day Delivery on your order. Don't forget to enter the code <span>nexday</span> at checkout</p>
@@ -91,7 +91,7 @@
             <button id="buy">Buy now</button>
             <dl>
                 <dt>Total cost</dt>
-                <dd>£1 640.50</dd>
+                <dd>£<span id="bag-sum"></span></dd>
             </dl>
         </article>
     </section>

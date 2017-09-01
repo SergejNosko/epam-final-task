@@ -53,7 +53,7 @@
         }
 
         let itemsArray = localStorage.items ? JSON.parse(localStorage.items) : [],
-            totalPrice = parseFloat(localStorage.bagTotal) || 0,
+            totalPrice = parseFloat(localStorage.bagTotal).toFixed(1) || 0,
             name = document.getElementById('item-name').textContent,
             price = document.getElementById('item-price').textContent,
             color = document.getElementById('item-color'),
@@ -86,7 +86,7 @@
                 itemsArray.push(itemObj);
                 localStorage.setItem('items', JSON.stringify(itemsArray));
             }
-            totalPrice += parseFloat(price);
+            totalPrice += parseFloat(price).toFixed(1);
             localStorage.setItem('bagTotal', totalPrice);
             bagCount.textContent = localStorage.bagTotal;
             itemNumber.textContent = JSON.parse(localStorage.items).length;
