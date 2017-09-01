@@ -44,18 +44,18 @@
         if(target.tagName !== 'BUTTON') return;
 
         let name = target.parentElement.children[0].textContent,
-            price = parseFloat(target.parentElement.children[1].children[0].textContent).toFixed(1),
+            price = parseFloat(target.parentElement.children[1].children[0].textContent),
             color = target.parentElement.children[2].children[0].children[0].textContent,
             size = target.parentElement.children[2].children[1].children[0].textContent,
             quantity = target.parentElement.children[2].children[2].children[0],
             items = JSON.parse(localStorage.items);
         items.forEach((item, i) => {
            if(item.name === name && item.color === color && item.size === size){
-               let currentSum = parseFloat(bagCount.textContent).toFixed(1);
+               let currentSum = parseFloat(bagCount.textContent);
                currentSum -= price;
-               bagSum.textContent = currentSum;
-               bagCount.textContent = currentSum;
-               localStorage.setItem('bagTotal', currentSum);
+               bagSum.textContent = currentSum.toFixed(1);
+               bagCount.textContent = currentSum.toFixed(1);
+               localStorage.setItem('bagTotal', currentSum.toFixed(1));
                if(item.quantity > 1){
                    item.quantity -= 1;
                    quantity.textContent = item.quantity;
@@ -63,7 +63,6 @@
                }
                else{
                    items.splice(i, 1);
-                   bagSum.textContent = item.quantity;
                    localStorage.setItem('items', JSON.stringify(items));
                    bagContainer.removeChild(target.parentElement.parentElement);
                }

@@ -1,10 +1,15 @@
 'use strict';
 
 (function () {
-    var thumbnail = document.getElementById('thumbnail'),
+    var bagCount = document.getElementById('bag-count'),
+        itemNumber = document.getElementById('item-number'),
+        thumbnail = document.getElementById('thumbnail'),
         children = thumbnail.children,
-        feature = document.getElementById('feature');
+        feature = document.getElementById('feature'),
+        addButton = document.getElementById('add');
     children[0].children[0].style.display = 'block';
+    bagCount.textContent = localStorage.bagTotal || '';
+    itemNumber.textContent = localStorage.items ? JSON.parse(localStorage.items).length : 0;
 
     function handleThumbnail(e) {
         var target = e.target;
@@ -37,6 +42,60 @@
         target.classList.add('current-feature');
     }
 
+    function handleAdd() {
+        function searchActive(node) {
+            var number = void 0;
+            for (var i = 0; i < node.children.length; i++) {
+                if (node.children[i].classList.contains('current-feature')) {
+                    number = i;
+                    break;
+                }
+            }
+            return number;
+        }
+
+        var itemsArray = localStorage.items ? JSON.parse(localStorage.items) : [],
+            totalPrice = parseFloat(localStorage.bagTotal) || 0,
+            name = document.getElementById('item-name').textContent,
+            price = document.getElementById('item-price').textContent,
+            color = document.getElementById('item-color'),
+            size = document.getElementById('item-size'),
+            quantity = 1,
+            photo = document.getElementById('item-photo').src + 'endimage',
+            isDuplicate = itemsArray.some(function (item) {
+            if (item.name === name) {
+                if (item.color === color.children[searchActive(color)].textContent && item.size === size.children[searchActive(size)].textContent) {
+                    console.log('here');
+                    item.quantity += 1;
+                    return true;
+                } else return false;
+            }
+            return false;
+        });
+        if (isDuplicate === true) {
+            localStorage.setItem('items', JSON.stringify(itemsArray));
+        } else {
+            var itemObj = {
+                name: name,
+                price: price,
+                color: color.children[searchActive(color)].textContent,
+                size: size.children[searchActive(size)].textContent,
+                quantity: quantity,
+                photo: photo.substring(photo.indexOf('images/'), photo.indexOf('endimage'))
+            };
+            itemsArray.push(itemObj);
+            localStorage.setItem('items', JSON.stringify(itemsArray));
+        }
+        totalPrice += parseFloat(price);
+        console.log(totalPrice);
+        localStorage.setItem('bagTotal', totalPrice.toFixed(1));
+        bagCount.textContent = localStorage.bagTotal;
+        itemNumber.textContent = JSON.parse(localStorage.items).length;
+        console.log(itemsArray);
+        //console.log(localStorage.items);
+    }
+
+    addButton.addEventListener('click', handleAdd);
     feature.addEventListener('click', handleFeature);
     thumbnail.addEventListener('click', handleThumbnail);
 })();
