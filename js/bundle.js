@@ -7,6 +7,7 @@ var slides = document.getElementsByClassName('slider-item'),
     childrens = pagginator.children,
     slider = document.getElementById('slider'),
     xDown = null,
+    yDown = null,
     interval = setInterval(handleClickNext, 10000),
     prevButton = document.getElementById('prev-button'),
     nextButton = document.getElementById('next-button'),
@@ -14,14 +15,7 @@ var slides = document.getElementsByClassName('slider-item'),
     itemNumber = document.getElementById('item-number');
 
 bagCount.textContent = localStorage.bagTotal || '';
-if (localStorage.items) {
-    var number = 0;
-    JSON.parse(localStorage.items).forEach(function (item) {
-        number += parseInt(item.quantity);
-    });
-    itemNumber.textContent = number;
-}
-else itemNumber.textContent = 0;
+itemNumber.textContent = localStorage.items ? JSON.parse(localStorage.items).length : 0;
 
 function handleClickNext() {
     var current = void 0,
@@ -123,6 +117,7 @@ function handlePagginator(e) {
 
 function handleTouchStart(e) {
     xDown = e.touches[0].clientX;
+    yDown = e.touches[0].clientY;
 }
 
 function handleTouchMove(e) {
@@ -130,19 +125,26 @@ function handleTouchMove(e) {
 
     if (target.classList.contains('image') === false) return;
 
-    if (!xDown) {
+    if (!xDown || !yDown) {
         return;
     }
 
     var xUp = e.touches[0].clientX,
-        xDiff = xDown - xUp;
+        yUp = e.touches[0].clientY,
+        xDiff = xDown - xUp,
+        yDiff = yDown - yUp;
 
-    if (xDiff > 0) {
-        handleClickNext();
+    if (Math.abs(xDiff) > Math.abs(yDiff)) {
+        if (xDiff > 0) {
+            handleClickNext();
+        } else {
+            handleClickPrev();
+        }
     } else {
-        handleClickPrev();
+        return;
     }
     xDown = null;
+    yDown = null;
 }
 
 slider.addEventListener('touchstart', handleTouchStart, false);
