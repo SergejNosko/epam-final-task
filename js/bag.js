@@ -8,7 +8,14 @@
         isEmpty = document.getElementById('is-empty');
 
     bagCount.textContent = localStorage.bagTotal || '';
-    itemNumber.textContent = localStorage.items ? JSON.parse(localStorage.items).length : 0;
+    if(localStorage.items){
+        let number = 0;
+        JSON.parse(localStorage.items).forEach((item) => {
+            number += parseInt(item.quantity);
+        });
+        itemNumber.textContent = number;
+    }
+    //itemNumber.textContent = localStorage.items ? JSON.parse(localStorage.items).length : 0;
     bagSum.textContent = localStorage.bagTotal ? localStorage.bagTotal : 0;
 
     function showItems() {
@@ -51,8 +58,10 @@
             items = JSON.parse(localStorage.items);
         items.forEach((item, i) => {
            if(item.name === name && item.color === color && item.size === size){
-               let currentSum = parseFloat(bagCount.textContent);
+               let currentSum = parseFloat(bagCount.textContent),
+                    currentItemsNumber = itemNumber.textContent - 1;
                currentSum -= price;
+               itemNumber.textContent = currentItemsNumber;
                bagSum.textContent = currentSum.toFixed(1);
                bagCount.textContent = currentSum.toFixed(1);
                localStorage.setItem('bagTotal', currentSum.toFixed(1));

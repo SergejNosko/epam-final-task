@@ -8,7 +8,14 @@
         itemNumber = document.getElementById('item-number');
 
     bagCount.textContent = localStorage.bagTotal || '';
-    itemNumber.textContent = localStorage.items ? JSON.parse(localStorage.items).length : 0;
+    if (localStorage.items) {
+        var number = 0;
+        JSON.parse(localStorage.items).forEach(function (item) {
+            number += parseInt(item.quantity);
+        });
+        itemNumber.textContent = number;
+    }
+    else itemNumber.textContent = 0;
 
     function handleFilter(e) {
         var target = e.target;

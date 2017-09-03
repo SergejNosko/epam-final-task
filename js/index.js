@@ -3,6 +3,8 @@
 let slides = document.getElementsByClassName('slider-item'),
     pagginator = document.getElementById('pagginator'),
     childrens = pagginator.children,
+    slider = document.getElementById('slider'),
+    xDown = null,
     interval = setInterval(handleClickNext, 10000),
     prevButton = document.getElementById('prev-button'),
     nextButton = document.getElementById('next-button'),
@@ -110,6 +112,32 @@ function handlePagginator(e) {
     interval = setInterval(handleClickNext, 10000);
 }
 
+function handleTouchStart(e) {
+    xDown = e.touches[0].clientX;
+}
+
+function handleTouchMove(e) {
+    let target = e.target;
+
+    if(target.classList.contains('image') === false) return;
+
+    if (!xDown) {
+        return;
+    }
+
+    let xUp = e.touches[0].clientX;
+        xDiff = xDown - xUp;
+
+    if ( xDiff > 0 ) {
+        handleClickNext();
+    } else {
+        handleClickPrev();
+    }
+    xDown = null;
+}
+
+slider.addEventListener('touchstart', handleTouchStart, false);
+slider.addEventListener('touchmove', handleTouchMove, false);
 pagginator.addEventListener('click', handlePagginator);
 prevButton.addEventListener('click', handleClickPrev);
 nextButton.addEventListener('click', handleClickNext);

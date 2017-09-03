@@ -12,7 +12,6 @@ search.addEventListener('click', function (e) {
 });
 
 popUp.addEventListener('click', function () {
-    console.log(buttons);
     var headerBottom = document.getElementById('header-bottom');
     if (getComputedStyle(headerBottom).display == 'none') {
         headerBottom.style.display = 'flex';

@@ -790,6 +790,9 @@ footer article:nth-of-type(2){
     font-size: 40px;
     margin: 30px auto 50px auto;
 }
+#is-empty a{
+    color: #ff004a;
+}
 
 .bag-head{
     max-width: 1180px;
@@ -1058,7 +1061,7 @@ footer article:nth-of-type(2){
         margin-top: 50px;
     }
     .footer-bottom{
-        padding: 35px 40px;
+        padding: 35px 20px;
     }
 
     /*---------------------------Catalog page----------------------------------------------*/
@@ -1102,7 +1105,7 @@ footer article:nth-of-type(2){
         color: #f14a58;
     }
     .filter-768 .filter-768-headers{
-        padding: 25px 0;
+        padding: 25px 15px 25px 0;
         border-top: 1px solid #e5e5e5;
         border-bottom: 1px solid #e5e5e5;
         background: url("../images/drop-down-ico.png") no-repeat 100% 50%
@@ -1286,6 +1289,8 @@ footer article:nth-of-type(2){
     .bag-item-hover{
         color: rgba(0, 0, 0, 0);
         background: none;
+        width: 145px;
+        height: 205px;
     }
     .bag-item:hover .bag-item-hover{
         display: flex;
@@ -1301,6 +1306,10 @@ footer article:nth-of-type(2){
 
 
 @media only screen and (max-width: 768px) {
+    .bag-item-hover{
+        width: 145px;
+        height: 205px;
+    }
     .container {
         padding: 0 20px;
     }

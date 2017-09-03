@@ -43,8 +43,8 @@
     function handleAdd() {
         function searchActive(node) {
             let number;
-            for(let i = 0; i < node.children.length; i++){
-                if(node.children[i].classList.contains('current-feature')){
+            for (let i = 0; i < node.children.length; i++) {
+                if (node.children[i].classList.contains('current-feature')) {
                     number = i;
                     break;
                 }
@@ -53,6 +53,7 @@
         }
 
         let itemsArray = localStorage.items ? JSON.parse(localStorage.items) : [],
+            currentItemNumber = parseInt(itemNumber.textContent),
             totalPrice = parseFloat(localStorage.bagTotal) || 0,
             name = document.getElementById('item-name').textContent,
             price = document.getElementById('item-price').textContent,
@@ -61,9 +62,8 @@
             quantity = 1,
             photo = document.getElementById('item-photo').src + 'endimage',
             isDuplicate = itemsArray.some((item) => {
-                if(item.name === name){
-                    if(item.color === color.children[searchActive(color)].textContent && item.size === size.children[searchActive(size)].textContent){
-                        console.log('here');
+                if (item.name === name) {
+                    if (item.color === color.children[searchActive(color)].textContent && item.size === size.children[searchActive(size)].textContent) {
                         item.quantity += 1;
                         return true;
                     }
@@ -71,28 +71,25 @@
                 }
                 return false;
             });
-            if(isDuplicate === true){
-                localStorage.setItem('items', JSON.stringify(itemsArray));
-            }
-            else{
-                let itemObj = {
-                    name,
-                    price,
-                    color: color.children[searchActive(color)].textContent,
-                    size: size.children[searchActive(size)].textContent,
-                    quantity,
-                    photo: photo.substring(photo.indexOf('images/'), photo.indexOf('endimage'))
-                };
-                itemsArray.push(itemObj);
-                localStorage.setItem('items', JSON.stringify(itemsArray));
-            }
-            totalPrice += parseFloat(price);
-            console.log(totalPrice);
-            localStorage.setItem('bagTotal', totalPrice.toFixed(1));
-            bagCount.textContent = localStorage.bagTotal;
-            itemNumber.textContent = JSON.parse(localStorage.items).length;
-        console.log(itemsArray);
-        //console.log(localStorage.items);
+        if (isDuplicate === true) {
+            localStorage.setItem('items', JSON.stringify(itemsArray));
+        }
+        else {
+            let itemObj = {
+                name,
+                price,
+                color: color.children[searchActive(color)].textContent,
+                size: size.children[searchActive(size)].textContent,
+                quantity,
+                photo: photo.substring(photo.indexOf('images/'), photo.indexOf('endimage'))
+            };
+            itemsArray.push(itemObj);
+            localStorage.setItem('items', JSON.stringify(itemsArray));
+        }
+        totalPrice += parseFloat(price);
+        localStorage.setItem('bagTotal', totalPrice.toFixed(1));
+        bagCount.textContent = localStorage.bagTotal;
+        itemNumber.textContent = currentItemNumber + 1;
     }
 
     addButton.addEventListener('click', handleAdd);

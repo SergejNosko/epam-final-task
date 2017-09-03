@@ -9,7 +9,14 @@
         addButton = document.getElementById('add');
     children[0].children[0].style.display = 'block';
     bagCount.textContent = localStorage.bagTotal || '';
-    itemNumber.textContent = localStorage.items ? JSON.parse(localStorage.items).length : 0;
+    if (localStorage.items) {
+        var number = 0;
+        JSON.parse(localStorage.items).forEach(function (item) {
+            number += parseInt(item.quantity);
+        });
+        itemNumber.textContent = number;
+    }
+    else itemNumber.textContent = 0;
 
     function handleThumbnail(e) {
         var target = e.target;
@@ -55,6 +62,7 @@
         }
 
         var itemsArray = localStorage.items ? JSON.parse(localStorage.items) : [],
+            currentItemNumber = parseInt(itemNumber.textContent),
             totalPrice = parseFloat(localStorage.bagTotal) || 0,
             name = document.getElementById('item-name').textContent,
             price = document.getElementById('item-price').textContent,
@@ -65,7 +73,6 @@
             isDuplicate = itemsArray.some(function (item) {
             if (item.name === name) {
                 if (item.color === color.children[searchActive(color)].textContent && item.size === size.children[searchActive(size)].textContent) {
-                    console.log('here');
                     item.quantity += 1;
                     return true;
                 } else return false;
@@ -87,12 +94,9 @@
             localStorage.setItem('items', JSON.stringify(itemsArray));
         }
         totalPrice += parseFloat(price);
-        console.log(totalPrice);
         localStorage.setItem('bagTotal', totalPrice.toFixed(1));
         bagCount.textContent = localStorage.bagTotal;
-        itemNumber.textContent = JSON.parse(localStorage.items).length;
-        console.log(itemsArray);
-        //console.log(localStorage.items);
+        itemNumber.textContent = currentItemNumber + 1;
     }
 
     addButton.addEventListener('click', handleAdd);

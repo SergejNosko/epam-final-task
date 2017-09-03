@@ -5,6 +5,8 @@
 var slides = document.getElementsByClassName('slider-item'),
     pagginator = document.getElementById('pagginator'),
     childrens = pagginator.children,
+    slider = document.getElementById('slider'),
+    xDown = null,
     interval = setInterval(handleClickNext, 10000),
     prevButton = document.getElementById('prev-button'),
     nextButton = document.getElementById('next-button'),
@@ -12,7 +14,14 @@ var slides = document.getElementsByClassName('slider-item'),
     itemNumber = document.getElementById('item-number');
 
 bagCount.textContent = localStorage.bagTotal || '';
-itemNumber.textContent = localStorage.items ? JSON.parse(localStorage.items).length : 0;
+if (localStorage.items) {
+    var number = 0;
+    JSON.parse(localStorage.items).forEach(function (item) {
+        number += parseInt(item.quantity);
+    });
+    itemNumber.textContent = number;
+}
+else itemNumber.textContent = 0;
 
 function handleClickNext() {
     var current = void 0,
@@ -112,6 +121,32 @@ function handlePagginator(e) {
     interval = setInterval(handleClickNext, 10000);
 }
 
+function handleTouchStart(e) {
+    xDown = e.touches[0].clientX;
+}
+
+function handleTouchMove(e) {
+    var target = e.target;
+
+    if (target.classList.contains('image') === false) return;
+
+    if (!xDown) {
+        return;
+    }
+
+    var xUp = e.touches[0].clientX,
+        xDiff = xDown - xUp;
+
+    if (xDiff > 0) {
+        handleClickNext();
+    } else {
+        handleClickPrev();
+    }
+    xDown = null;
+}
+
+slider.addEventListener('touchstart', handleTouchStart, false);
+slider.addEventListener('touchmove', handleTouchMove, false);
 pagginator.addEventListener('click', handlePagginator);
 prevButton.addEventListener('click', handleClickPrev);
 nextButton.addEventListener('click', handleClickNext);
