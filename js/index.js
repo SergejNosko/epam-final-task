@@ -5,6 +5,7 @@ let slides = document.getElementsByClassName('slider-item'),
     childrens = pagginator.children,
     slider = document.getElementById('slider'),
     xDown = null,
+    yDown = null,
     interval = setInterval(handleClickNext, 10000),
     prevButton = document.getElementById('prev-button'),
     nextButton = document.getElementById('next-button'),
@@ -114,6 +115,7 @@ function handlePagginator(e) {
 
 function handleTouchStart(e) {
     xDown = e.touches[0].clientX;
+    yDown = e.touches[0].clientY;
 }
 
 function handleTouchMove(e) {
@@ -121,19 +123,27 @@ function handleTouchMove(e) {
 
     if(target.classList.contains('image') === false) return;
 
-    if (!xDown) {
+    if (!xDown || !yDown) {
         return;
     }
 
-    let xUp = e.touches[0].clientX;
-        xDiff = xDown - xUp;
+    let xUp = e.touches[0].clientX,
+        yUp = e.touches[0].clientY,
+        xDiff = xDown - xUp,
+        yDiff = yDown - yUp;
 
-    if ( xDiff > 0 ) {
-        handleClickNext();
-    } else {
-        handleClickPrev();
+    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
+        if (xDiff > 0) {
+            handleClickNext();
+        } else {
+            handleClickPrev();
+        }
+    }
+    else{
+        return;
     }
     xDown = null;
+    yDown = null;
 }
 
 slider.addEventListener('touchstart', handleTouchStart, false);
